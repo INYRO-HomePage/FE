@@ -6,7 +6,7 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="bg-[url(/public/frame.png)] w-full h-[2048px] bg-cover bg-center">
+    <div className="bg-[url(/frame.png)] w-full h-[2048px] bg-cover bg-center">
       {children}
     </div>
   );
