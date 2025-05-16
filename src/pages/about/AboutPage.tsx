@@ -187,3 +187,5 @@ function AboutPage() {
 }
 
 export default AboutPage;
+
+// 2025.05.17 완성
