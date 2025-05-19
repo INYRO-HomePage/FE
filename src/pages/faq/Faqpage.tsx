@@ -71,6 +71,8 @@ function FaqPage() {
             </div>
           </div>
         );
+
+      // 등록 및 회비 안내
       case "register":
         return (
           <div className="flex flex-col gap-[51px]">
