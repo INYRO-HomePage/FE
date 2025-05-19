@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef } from "react";
 
 import ArrowDown from "../../assets/arror-down.svg";
 import ArrowUp from "../../assets/arror-up.svg";
@@ -10,26 +10,18 @@ interface FaqItemProps {
 
 const FaqItem = ({ question, answer }: FaqItemProps) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [height, setHeight] = useState<number>(100);
   const answerRef = useRef<HTMLParagraphElement>(null);
 
-  useLayoutEffect(() => {
-    if (open && answerRef.current) {
-      setHeight(130 + answerRef.current.scrollHeight);
-    } else {
-      setHeight(110);
-    }
-  }, [open, answer]);
-
   return (
-    <div
-      className="flex flex-col justify-center rounded-[30px] w-[900px] px-[50px] font-bold bg-[#345c5b] transition-all duration-300 overflow-hidden cursor-pointer"
-      style={{ height: `${height}px` }}
-      onClick={() => setOpen(!open)}
-    >
+    <div className="flex flex-col rounded-[30px] w-[900px] h-[auto] px-[50px] font-bold bg-[#345c5b] cursor-pointer py-[30px]">
       {/* 질문 */}
-      <div className="flex justify-between items-center cursor-pointer">
-        <h2 className="text-2xl font-bold">{question}</h2>
+      <div
+        className="flex justify-between items-center cursor-pointer "
+        onClick={() => setOpen(!open)}
+      >
+        <h2 className="text-2xl font-bold flex-1 flex items-center">
+          {question}
+        </h2>
         <img
           src={open ? ArrowUp : ArrowDown}
           alt={open ? "접기" : "펼치기"}
@@ -38,15 +30,23 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
       </div>
 
       {/* 답 */}
-      <div>
-        {open && (
-          <p
-            ref={answerRef}
-            className="px-2 pb-2 text-lg text-start whitespace-pre-line font-normal transition-all duration-200 mt-[25px]"
-          >
-            {answer}
-          </p>
-        )}
+      <div
+        className="transition-all duration-300 overflow-hidden"
+        style={{
+          maxHeight:
+            open && answerRef.current
+              ? answerRef.current.scrollHeight + 40
+              : 0,
+          opacity: open ? 1 : 0,
+        }}
+        onClick={() => setOpen(!open)}
+      >
+        <p
+          ref={answerRef}
+          className="mt-[25px] text-lg text-start whitespace-pre-line font-normal"
+        >
+          {answer}
+        </p>
       </div>
     </div>
   );
