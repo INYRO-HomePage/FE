@@ -5,8 +5,10 @@ import LaptopIcon from "../../components/icons/LaptopIcon";
 import CodeIcon from "../../components/icons/CodeIcon";
 import ProjectIcon from "../../components/icons/ProjectIcon";
 import Header from "../../components/header/Header";
+import { useNavigate } from "react-router-dom";
 
 const Homepage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <>
       {/* Header */}
@@ -71,7 +73,10 @@ const Homepage: React.FC = () => {
 
           <div className="flex justify-center mt-[90px] text-2xl">
             {/* Vector Icon */}
-            <ArrowIcon className="cursor-pointer" />
+            <ArrowIcon
+              onClick={() => navigate("/activities")}
+              className="cursor-pointer"
+            />
           </div>
         </section>
       </main>
