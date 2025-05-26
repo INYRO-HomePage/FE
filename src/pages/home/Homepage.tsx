@@ -30,7 +30,10 @@ const Homepage: React.FC = () => {
           </p>
           <div className="flex mt-[73px] justify-center text-2xl">
             {/* Vector Icon */}
-            <ArrowIcon className="cursor-pointer" />
+            <ArrowIcon
+              onClick={() => navigate("/about")}
+              className="cursor-pointer"
+            />
           </div>
         </section>
 
@@ -45,7 +48,7 @@ const Homepage: React.FC = () => {
           <div className="flex mt-[87px] justify-center gap-[200px]">
             <StudyIcon />
             <div className="relative w-[115px] h-[115px]">
-              <LaptopIcon className="" />
+              <LaptopIcon />
               <CodeIcon className="absolute top-6 right-[21px]" />
             </div>
             <ProjectIcon />
