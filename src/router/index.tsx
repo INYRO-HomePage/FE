@@ -12,13 +12,14 @@ function AppRouter() {
       <Header />
       <Layout>
         <Routes>
+          <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
-          <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/faq" element={<FaqPage />}></Route>
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/faq" element={<FaqPage />} />
           <Route
             path="/activities"
             element={<ActivitiesPage />}
-          ></Route>
+          />
         </Routes>
       </Layout>
     </BrowserRouter>
