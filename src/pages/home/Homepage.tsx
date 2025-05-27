@@ -4,23 +4,20 @@ import StudyIcon from "../../components/icons/StudyIcon";
 import LaptopIcon from "../../components/icons/LaptopIcon";
 import CodeIcon from "../../components/icons/CodeIcon";
 import ProjectIcon from "../../components/icons/ProjectIcon";
-import Header from "../../components/header/Header";
 import { useNavigate } from "react-router-dom";
 
 const Homepage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <>
-      {/* Header */}
-      <Header />
       <main className="flex flex-col items-center text-white font-[Inter]">
         {/* Title */}
-        <section className="pt-[246px] text-center">
+        <section className="mt-[246px] text-center">
           <h1 className="text-[128px] font-bold leading-none">INYRO</h1>
         </section>
 
         {/* About */}
-        <section className="pt-[374px] text-center">
+        <section className="mt-[374px] text-center">
           <h2 className="text-[64px] font-bold">About</h2>
           <p className="text-[96px] font-bold mt-[79px]">
             “IN You, Run Onward”
@@ -43,45 +40,45 @@ const Homepage: React.FC = () => {
           <p className="text-[24px] font-thin ">
             서로에게 배움이 되어, 함께 성장합니다
           </p>
+        </section>
 
-          {/* tab  */}
-          <div className="flex mt-[87px] justify-center gap-[200px]">
-            <StudyIcon />
-            <div className="relative w-[115px] h-[115px]">
-              <LaptopIcon />
-              <CodeIcon className="absolute top-6 right-[21px]" />
-            </div>
-            <ProjectIcon />
-          </div>
-          <div className="inline-flex items-center gap-[30px]">
-            {/* study */}
-            <div className="flex justify-center items-center gap-[10px] px-[64px] py-[20px] rounded-full border border-white">
-              <span className="text-white text-center  text-[32px] font-semibold not-italic leading-none">
-                study
-              </span>
-            </div>
-            {/* mentoring */}
-            <div className="flex justify-center items-center gap-[10px] px-[64px] py-[20px] rounded-full border border-white">
-              <span className="text-white text-center  text-[32px] font-semibold not-italic leading-none">
-                mentoring
-              </span>
-            </div>
-            {/* project */}
-            <div className="flex justify-center items-center gap-[10px] px-[64px] py-[20px] rounded-full border border-white">
-              <span className="text-white text-center  text-[32px] font-semibold not-italic leading-none">
-                project
-              </span>
-            </div>
+        {/* tab  */}
+        <section className="w-full max-w-[900px] flex flex-wrap justify-center gap-[100px] mt-[87px]">
+          {/* 카드 1 */}
+          <div className="flex flex-col justify-center items-center gap-6">
+            <StudyIcon height="110px" />
+            <span className="text-white text-center text-[32px] font-semibold not-italic leading-none px-10 py-[20px] rounded-full border border-white">
+              Study
+            </span>
           </div>
 
-          <div className="flex justify-center mt-[90px] text-2xl">
-            {/* Vector Icon */}
-            <ArrowIcon
-              onClick={() => navigate("/activities")}
-              className="cursor-pointer"
-            />
+          {/* 카드 2 */}
+          <div className="flex flex-col justify-center items-center gap-6">
+            <div className="relative">
+              <LaptopIcon height="110px" />
+              <CodeIcon className="absolute top-5 right-[22px]" />
+            </div>
+            <span className="text-white text-center text-[32px] font-semibold not-italic leading-none px-10 py-[20px] rounded-full border border-white">
+              Mentoring
+            </span>
+          </div>
+
+          {/* 카드 3 */}
+          <div className="flex flex-col justify-center items-center gap-6">
+            <ProjectIcon height="110px" />
+            <span className="text-white text-center text-[32px] font-semibold not-italic leading-none px-10 py-[20px] rounded-full border border-white">
+              Project
+            </span>
           </div>
         </section>
+
+        <div className="flex justify-center mt-[73px] mb-[50px] text-2xl">
+          {/* Vector Icon */}
+          <ArrowIcon
+            onClick={() => navigate("/activities")}
+            className="cursor-pointer"
+          />
+        </div>
       </main>
     </>
   );
