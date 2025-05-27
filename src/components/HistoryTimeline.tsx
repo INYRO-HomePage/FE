@@ -50,7 +50,7 @@ const HistoryTimeline = () => {
           <AccordionList
             items={historyList.map((item) => ({
               title: item.title,
-              content: item.content,
+              imageUrl: item.image.url,
             }))}
           />
         )}

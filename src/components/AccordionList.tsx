@@ -1,7 +1,7 @@
 import AccordionItem from "./AccordionItem";
 
 interface AccordionListProps {
-  items: { title: string; content: React.ReactNode }[];
+  items: { title: string; imageUrl: string }[];
 }
 
 const AccordionList: React.FC<AccordionListProps> = ({ items }) => {
@@ -9,7 +9,7 @@ const AccordionList: React.FC<AccordionListProps> = ({ items }) => {
     <ul className="space-y-6 max-w-[266px] w-full border-l-2 border-white">
       {items.map((item, idx) => (
         <li key={idx}>
-          <AccordionItem title={item.title}>{item.content}</AccordionItem>
+          <AccordionItem title={item.title} imageUrl={item.imageUrl} />
         </li>
       ))}
     </ul>

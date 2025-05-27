@@ -9,7 +9,7 @@ import HistoryTimeline from "../../components/HistoryTimeline";
 const ActivitiesPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen text-white font-[Inter] ">
+    <div className="min-h-screen text-white font-[Inter] pb-[200px]">
       <Header />
       <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col items-center gap-[120px]">
         {/* frame 37 */}

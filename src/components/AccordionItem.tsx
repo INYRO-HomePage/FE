@@ -4,10 +4,10 @@ import ArrowDownIcon from "./icons/ArrowDownIcon";
 
 interface AccordionItemProps {
   title: string;
-  children: React.ReactNode;
+  imageUrl: string;
 }
 
-const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => {
+const AccordionItem: React.FC<AccordionItemProps> = ({ title, imageUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -28,8 +28,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => {
 
       {/* 펼쳐진 내용 */}
       {isOpen && (
-        <div className="bg-[#D9D9D9] rounded-[20px] p-6 text-black mt-2">
-          {children}
+        <div className="bg-transparent rounded-[30px] p-0 overflow-hidden mt-2">
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full h-full object-cover rounded-[30px]"
+          />
         </div>
       )}
     </div>
