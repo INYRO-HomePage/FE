@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SelectBox from "./SelectBox";
 import AccordionList from "./AccordionList";
-import { fetchHistoryByYear, type HistoryItem } from "../api/historyApi";
+import {
+  fetchHistoryByYear,
+  type HistoryItem,
+} from "../api/historyApi";
 
 const HistoryTimeline = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
-  const [historyList, setHistoryList] = useState<HistoryItem[]>([]);
+  const [historyList, setHistoryList] = useState<HistoryItem[]>(
+    []
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -16,7 +21,9 @@ const HistoryTimeline = () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await fetchHistoryByYear(Number(selectedYear));
+        const data = await fetchHistoryByYear(
+          Number(selectedYear)
+        );
         setHistoryList(data);
       } catch (error) {
         const err = error as Error;
@@ -33,7 +40,9 @@ const HistoryTimeline = () => {
   return (
     <section className="w-full max-w-[600px] px-4 mx-auto mt-[45px] flex flex-col items-center">
       <div className="flex justify-between items-center mb-10 w-[450px]">
-        <h2 className="text-[55px] sm:text-[80px] font-bold">{selectedYear}</h2>
+        <h2 className="text-[55px] sm:text-[80px] font-bold">
+          {selectedYear}
+        </h2>
         <SelectBox
           options={yearOptions}
           defaultValue={selectedYear}
