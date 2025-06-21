@@ -8,7 +8,7 @@ export interface HistoryItem {
   };
 }
 
-const BASE_URL = "http://inyro-page-eb.ap-northeast-2.elasticbeanstalk.com";
+const BASE_URL = "http://api.inyro.com";
 
 export const fetchHistoryByYear = async (
   year: number
