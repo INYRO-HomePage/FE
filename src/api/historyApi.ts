@@ -8,7 +8,7 @@ export interface HistoryItem {
   };
 }
 
-const BASE_URL = "http://api.inyro.com";
+const BASE_URL = "https://api.inyro.com";
 
 export const fetchHistoryByYear = async (
   year: number
